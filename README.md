@@ -1,5 +1,5 @@
 # VyapaarAI-Smart-Business-Assistant
-# VyapaarAI – Smart Business Assistant for MSMEs
+
 
 ## 🚀 Overview
 
