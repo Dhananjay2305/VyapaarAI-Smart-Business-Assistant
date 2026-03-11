@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VyapaarAI – Smart Business Assistant for MSMEs | AI-Powered Business Intelligence</title>
+    <meta name="description"
+        content="VyapaarAI is India's smartest AI-powered business assistant for MSMEs. Sales forecasting, inventory intelligence, bill scanning, credit risk analysis – all in Hindi, English & Telugu.">
+    <meta name="keywords"
+        content="MSME software, AI business assistant, kirana shop software, inventory management India, sales forecasting, VyapaarAI">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="favicon.png" alt="VyapaarAI" class="logo-icon">
+                <span class="logo-text">Vyapaar<span class="logo-highlight">AI</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#customers">Customers</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+            <div class="nav-actions" id="navActionsVisitor">
+                <a href="dashboard.html" class="btn btn-outline">Go to Dashboard</a>
+                <a href="#" id="signInBtn" class="btn btn-primary">Sign In</a>
+            </div>
+            <div class="nav-actions" id="navActionsUser" style="display: none; position: relative;">
+                <div class="profile-dropdown-trigger" id="profileTrigger"
+                    style="display: flex; align-items: center; gap: 10px; cursor: pointer; background: var(--off-white); padding: 5px 15px 5px 5px; border-radius: 50px; border: 1px solid var(--border-color); transition: all 0.3s ease;">
+                    <div class="user-avatar"
+                        style="background: var(--primary); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: 'Outfit';"
+                        id="navUserIcon">U</div>
+                    <span id="navUserName" style="font-weight: 500; font-family: 'Inter';">User</span>
+                    <i class="fas fa-chevron-down" style="font-size: 0.8rem; color: #6b7280;"></i>
+                </div>
+
+                <!-- NEW: Profile Dropdown Menu -->
+                <div class="profile-dropdown-menu" id="profileDropdown"
+                    style="display: none; position: absolute; top: calc(100% + 10px); right: 0; width: 220px; background: white; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid var(--border-color); padding: 10px; z-index: 1000; overflow: hidden; animation: fadeInDropdown 0.3s ease;">
+                    <div class="dropdown-header"
+                        style="padding: 10px; border-bottom: 1px solid var(--border-color); margin-bottom: 5px;">
+                        <div style="font-weight: 700; color: var(--text-dark); font-family: 'Outfit';"
+                            id="dropdownFullShopName">My Shop</div>
+                        <div style="font-size: 0.8rem; color: #6b7280;" id="dropdownUserEmail">user@example.com</div>
+                    </div>
+                    <a href="dashboard.html" class="dropdown-item"
+                        style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: var(--text-dark); transition: background 0.2s;">
+                        <i class="fas fa-th-large" style="width: 20px; color: var(--primary);"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="shop.html" class="dropdown-item"
+                        style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: var(--text-dark); transition: background 0.2s;">
+                        <i class="fas fa-store" style="width: 20px; color: #a855f7;"></i>
+                        <span>Shop Simulator</span>
+                    </a>
+                    <div style="height: 1px; background: var(--border-color); margin: 5px 0;"></div>
+                    <button class="dropdown-item logout-btn" id="logoutBtn"
+                        style="width: 100%; border: none; background: none; display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: #ef4444; font-weight: 600; cursor: pointer; transition: background 0.2s;">
+                        <i class="fas fa-sign-out-alt" style="width: 20px;"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="container hero-grid">
+            <div class="hero-content reveal">
+                <div class="hero-badge">
+                    <i class="fas fa-bolt"></i> AI-Powered Business Intelligence for India
+                </div>
+                <h1>
+                    Your <span class="gradient-text">Smart Business</span> Assistant for MSMEs
+                </h1>
+                <p class="hero-subtitle">
+                    VyapaarAI combines the power of an <strong>Accountant</strong>, <strong>Data Analyst</strong> &
+                    <strong>AI Assistant</strong> — all in one affordable app. Works in Hindi, English & Telugu.
+                </p>
+                <div class="hero-cta">
+                    <a href="dashboard.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-rocket"></i> Go to Dashboard
+                    </a>
+                    <a href="#features" class="btn btn-ghost btn-lg">
+                        <i class="fas fa-play-circle"></i> See How It Works
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="60000000">6 Cr+</span>
+                        <span class="stat-label">MSMEs in India</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Don't Use AI</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">₹499</span>
+                        <span class="stat-label">Per Month Only</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image reveal reveal-right">
+                <div class="hero-image-glow"></div>
+                <img src="hero-illustration.png" alt="VyapaarAI Dashboard showing smart business analytics">
+                <div class="floating-card card-1">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Sales +18% <i class="fas fa-arrow-up text-green"></i></span>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-bell"></i>
+                    <span>Restock Alert!</span>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Insight Ready</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,30 1440,60 L1440,120 L0,120 Z" fill="#ffffff" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- ========== PROBLEM STATEMENT ========== -->
+    <section class="section section-white" id="problem">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag"><i class="fas fa-exclamation-triangle"></i> The Real Problem</span>
+                <h2>Why Indian MSMEs Are <span class="gradient-text">Losing Money</span></h2>
+                <p class="section-desc">India has over <strong>6+ crore MSMEs</strong> registered under the Ministry of
+                    MSME. Most small businesses still run on guesswork, not data.</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card reveal">
+                    <div class="problem-icon"><i class="fas fa-calculator"></i></div>
+                    <h3>No Profit Tracking</h3>
+                    <p>Business owners don't know their exact profit. Expenses, revenue, and margins are all estimated,
+                        not calculated.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <div class="problem-icon"><i class="fas fa-crystal-ball"></i></div>
+                    <h3>No Demand Prediction</h3>
+                    <p>They can't predict which products will sell next week. Festivals, seasons, and trends go
+                        unanalyzed.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <div class="problem-icon"><i class="fas fa-boxes-stacked"></i></div>
+                    <h3>Manual Stock Keeping</h3>
+                    <p>Inventory managed in notebooks. Overstocking, understocking, and expired goods cause daily
+                        losses.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <div class="problem-icon"><i class="fas fa-hand-holding-dollar"></i></div>
+                    <h3>Risky Credit Sales</h3>
+                    <p>Goods sold on credit without any risk analysis. Customers delay payments, causing cash flow
+                        crises.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <div class="problem-icon"><i class="fas fa-indian-rupee-sign"></i></div>
+                    <h3>Costly ERP Software</h3>
+                    <p>Enterprise tools cost ₹10,000+/month — completely out of reach for small kirana shops and
+                        traders.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <div class="problem-icon"><i class="fas fa-language"></i></div>
+                    <h3>Complex English UI</h3>
+                    <p>Most tools are in English with complex jargon. Tier-2 and Tier-3 city owners struggle to use
+                        them.</p>
+                </div>
+            </div>
+            <div class="problem-example reveal">
+                <div class="example-icon"><i class="fas fa-store"></i></div>
+                <div class="example-content">
+                    <h3>Real Example: A Kirana Shop Owner</h3>
+                    <p>Buys 50 kg rice → Sells slowly → Doesn't know why sales dropped → Loses money to expiry → Gives
+                        credit, customers delay → <strong>Result: Low profit + poor decisions.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SOLUTION ========== -->
+    <section class="section section-gradient" id="solution">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag section-tag-light"><i class="fas fa-lightbulb"></i> Our Solution</span>
+                <h2 class="text-white">Meet <span class="gradient-text-light">VyapaarAI</span></h2>
+                <p class="section-desc text-white-70">A simple AI-powered mobile & web app that gives every small
+                    business the brainpower of a full analytics team.</p>
+            </div>
+            <div class="solution-cards reveal">
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-calculator"></i></div>
+                    <h3>Accountant</h3>
+                    <p>Automatic expense tracking, profit calculation & financial reports</p>
+                </div>
+                <div class="solution-plus"><i class="fas fa-plus"></i></div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h3>Data Analyst</h3>
+                    <p>Sales insights, demand patterns, trend analysis & visual dashboards</p>
+                </div>
+                <div class="solution-plus"><i class="fas fa-plus"></i></div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-robot"></i></div>
+                    <h3>AI Assistant</h3>
+                    <p>Ask questions in plain language, get instant answers about your business</p>
+                </div>
+            </div>
+            <div class="language-badges reveal">
+                <span class="lang-badge"><img src="https://flagcdn.com/24x18/in.png" alt="India"> English</span>
+                <span class="lang-badge"><img src="https://flagcdn.com/24x18/in.png" alt="India"> हिंदी</span>
+                <span class="lang-badge"><img src="https://flagcdn.com/24x18/in.png" alt="India"> తెలుగు</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CORE FEATURES / MODULES ========== -->
+    <section class="section section-light" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag"><i class="fas fa-cube"></i> Core Modules</span>
+                <h2>Powerful AI Features, <span class="gradient-text">Simple to Use</span></h2>
+                <p class="section-desc">Six intelligent modules that work together to transform how you run your
+                    business.</p>
+            </div>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card reveal" id="feature-forecast">
+                    <div class="feature-card-header">
+                        <div class="feature-icon-wrap gradient-1">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="feature-tag">ML Powered</span>
+                    </div>
+                    <h3>AI Sales Forecasting</h3>
+                    <p>Predict next week/month sales, festival demand (Diwali, Sankranti, Eid), and seasonal patterns
+                        using ARIMA & LSTM models.</p>
+                    <div class="feature-output">
+                        <i class="fas fa-quote-left"></i>
+                        "Next month expected sales: <strong>₹1,25,000</strong>. Rice demand may increase by
+                        <strong>18%</strong>."
+                    </div>
+                    <div class="feature-tech">
+                        <span>Linear Regression</span>
+                        <span>Time Series</span>
+                        <span>ARIMA / LSTM</span>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-card reveal" id="feature-inventory">
+                    <div class="feature-card-header">
+                        <div class="feature-icon-wrap gradient-2">
+                            <i class="fas fa-boxes-stacked"></i>
+                        </div>
+                        <span class="feature-tag">Real-time</span>
+                    </div>
+                    <h3>Smart Inventory Intelligence</h3>
+                    <p>AI detects slow-moving items, fast-moving items, dead stock & expiry risk. Get proactive restock
+                        alerts before you run out.</p>
+                    <div class="feature-output">
+                        <i class="fas fa-quote-left"></i>
+                        "Oil stock low. Restock within <strong>3 days</strong>. Wheat flour is <strong>dead
+                            stock</strong> — consider discount."
+                    </div>
+                    <div class="feature-tech">
+                        <span>Classification</span>
+                        <span>Pattern Detection</span>
+                        <span>Anomaly Detection</span>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-card reveal" id="feature-scanner">
+                    <div class="feature-card-header">
+                        <div class="feature-icon-wrap gradient-3">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <span class="feature-tag">OCR Tech</span>
+                    </div>
+                    <h3>AI Bill Scanner</h3>
+                    <p>Just take a photo of any bill or invoice. AI extracts amount, products, date — stores it
+                        automatically and updates your expense report.</p>
+                    <div class="feature-output">
+                        <i class="fas fa-quote-left"></i>
+                        "Bill scanned: <strong>₹3,450</strong> from Gupta Traders. <strong>12 items</strong> added to
+                        inventory."
+                    </div>
+                    <div class="feature-tech">
+                        <span>Tesseract OCR</span>
+                        <span>Vision API</span>
+                        <span>NLP Processing</span>
+                    </div>
+                </div>
+                <!-- Feature 4 -->
+                <div class="feature-card featured reveal" id="feature-chat">
+                    <div class="feature-card-header">
+                        <div class="feature-icon-wrap gradient-4">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <span class="feature-tag feature-tag-star"><i class="fas fa-star"></i> Star Feature</span>
+                    </div>
+                    <h3>AI Chat Business Assistant</h3>
+                    <p>Ask anything about your business in everyday language — Hindi or English. Get instant, accurate
+                        answers powered by your real data.</p>
+                    <div class="feature-chat-demo">
+                        <div class="chat-bubble user-bubble">
+                            <span>How much profit this month?</span>
+                        </div>
+                        <div class="chat-bubble ai-bubble">
+                            <i class="fas fa-robot"></i>
+                            <span>Your net profit this month is <strong>₹47,250</strong>. That's <strong>12%
+                                    higher</strong> than last month! Top seller: Ashirvaad Atta.</span>
+                        </div>
+                    </div>
+                    <div class="feature-tech">
+                        <span>NLP Engine</span>
+                        <span>Query Builder</span>
+                        <span>Multi-language</span>
+                    </div>
+                </div>
+                <!-- Feature 5 -->
+                <div class="feature-card reveal" id="feature-credit">
+                    <div class="feature-card-header">
+                        <div class="feature-icon-wrap gradient-5">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <span class="feature-tag">Risk Engine</span>
+                    </div>
+                    <h3>Credit Risk Prediction</h3>
+                    <p>AI predicts which customers are high-risk, likely to pay late, or default — so you can make
+                        smarter credit decisions.</p>
+                    <div class="feature-output">
+                        <i class="fas fa-quote-left"></i>
+                        "Customer Ravi – <strong>78% chance</strong> of late payment. Recommend: <strong>Reduce credit
+                            limit</strong>."
+                    </div>
+                    <div class="feature-tech">
+                        <span>Logistic Regression</span>
+                        <span>Random Forest</span>
+                        <span>Risk Scoring</span>
+                    </div>
+                </div>
+                <!-- Feature 6 -->
+                <div class="feature-card reveal" id="feature-reports">
+                    <div class="feature-card-header">
+                        <div class="feature-icon-wrap gradient-6">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <span class="feature-tag">Auto-Gen</span>
+                    </div>
+                    <h3>Smart Reports & Insights</h3>
+                    <p>Get daily, weekly, and monthly reports auto-generated in simple language. Revenue, expenses, top
+                        products, and growth trends — all visualized.</p>
+                    <div class="feature-output">
+                        <i class="fas fa-quote-left"></i>
+                        "Weekly summary: Revenue <strong>₹89,000</strong>. Expenses <strong>₹52,000</strong>. Top
+                        product: <strong>Toor Dal</strong>."
+                    </div>
+                    <div class="feature-tech">
+                        <span>Auto Reports</span>
+                        <span>Visual Charts</span>
+                        <span>PDF Export</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TARGET CUSTOMERS ========== -->
+    <section class="section section-white" id="customers">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag"><i class="fas fa-users"></i> Who It's For</span>
+                <h2>Built for <span class="gradient-text">Real Indian Businesses</span></h2>
+                <p class="section-desc">Especially designed for Tier-2 & Tier-3 city businesses who need powerful tools
+                    at affordable prices.</p>
+            </div>
+            <div class="customers-grid">
+                <div class="customer-card reveal">
+                    <div class="customer-icon"><i class="fas fa-store"></i></div>
+                    <h3>Kirana Stores</h3>
+                    <p>Daily stock, credit sales & seasonal demand</p>
+                </div>
+                <div class="customer-card reveal">
+                    <div class="customer-icon"><i class="fas fa-truck"></i></div>
+                    <h3>Small Wholesalers</h3>
+                    <p>Bulk orders, supplier management & invoicing</p>
+                </div>
+                <div class="customer-card reveal">
+                    <div class="customer-icon"><i class="fas fa-prescription-bottle-medical"></i></div>
+                    <h3>Medical Shops</h3>
+                    <p>Expiry tracking, batch management & compliance</p>
+                </div>
+                <div class="customer-card reveal">
+                    <div class="customer-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Tuition Centers</h3>
+                    <p>Fee tracking, student management & scheduling</p>
+                </div>
+                <div class="customer-card reveal">
+                    <div class="customer-icon"><i class="fas fa-shirt"></i></div>
+                    <h3>Retail Clothing</h3>
+                    <p>Seasonal trends, size tracking & return analysis</p>
+                </div>
+                <div class="customer-card reveal">
+                    <div class="customer-icon"><i class="fas fa-industry"></i></div>
+                    <h3>Small Manufacturers</h3>
+                    <p>Raw material, production costs & order tracking</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ========== FUTURE ROADMAP ========== -->
+    <section class="section section-gradient" id="roadmap">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag section-tag-light"><i class="fas fa-road"></i> Roadmap</span>
+                <h2 class="text-white">The <span class="gradient-text-light">Future</span> is Exciting</h2>
+                <p class="section-desc text-white-70">We're building the most comprehensive business intelligence
+                    platform for India's MSME revolution.</p>
+            </div>
+            <div class="roadmap-timeline">
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-card">
+                        <span class="roadmap-phase">Phase 1</span>
+                        <h3><i class="fas fa-file-invoice-dollar"></i> GST Filing Automation</h3>
+                        <p>Auto-generate GST returns from your sales data. No CA needed for basic filings.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-card">
+                        <span class="roadmap-phase">Phase 2</span>
+                        <h3><i class="fab fa-whatsapp"></i> WhatsApp Integration</h3>
+                        <p>Get daily reports, stock alerts & answer questions directly via WhatsApp Business.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-card">
+                        <span class="roadmap-phase">Phase 3</span>
+                        <h3><i class="fas fa-microphone"></i> Voice-Only Interface</h3>
+                        <p>Talk to VyapaarAI in Hindi/Telugu. Perfect for rural business owners who prefer voice over
+                            typing.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item reveal">
+                    <div class="roadmap-dot"></div>
+                    <div class="roadmap-card">
+                        <span class="roadmap-phase">Phase 4</span>
+                        <h3><i class="fas fa-money-bill-transfer"></i> UPI Smart Cash Flow</h3>
+                        <p>Analyze UPI transactions to build automatic cash flow reports and smart payment reminders.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MARKET POTENTIAL ========== -->
+    <section class="section section-white" id="market">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag"><i class="fas fa-chart-area"></i> Market Opportunity</span>
+                <h2>A <span class="gradient-text">Billion-Dollar</span> Opportunity</h2>
+            </div>
+            <div class="market-grid">
+                <div class="market-card reveal">
+                    <div class="market-icon"><i class="fas fa-flag"></i></div>
+                    <h3>Digital India Push</h3>
+                    <p>Government initiatives driving rapid digitization of MSMEs across all tiers.</p>
+                </div>
+                <div class="market-card reveal">
+                    <div class="market-icon"><i class="fas fa-mobile-screen-button"></i></div>
+                    <h3>UPI Revolution</h3>
+                    <p>Billions of UPI transactions monthly creating a data-rich environment for AI analysis.</p>
+                </div>
+                <div class="market-card reveal">
+                    <div class="market-icon"><i class="fas fa-building-columns"></i></div>
+                    <h3>Banking Partnerships</h3>
+                    <p>Partner with SBI, HDFC Bank to provide credit scores & earn commission on loans.</p>
+                </div>
+                <div class="market-card reveal">
+                    <div class="market-icon"><i class="fas fa-shop"></i></div>
+                    <h3>Vendor Marketplace</h3>
+                    <p>Connect businesses with wholesalers. Recommend suppliers & earn referral commissions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA SECTION ========== -->
+    <section class="section section-cta" id="cta">
+        <div class="cta-bg-shapes">
+            <div class="cta-shape cta-shape-1"></div>
+            <div class="cta-shape cta-shape-2"></div>
+        </div>
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Ready to Make Your Business <span class="gradient-text-light">Smarter</span>?</h2>
+                <p>Join thousands of Indian MSMEs who are already using AI to boost profits, reduce waste, and make
+                    better decisions every day.</p>
+                <div class="cta-actions">
+                    <a href="dashboard.html" class="btn btn-white btn-lg">
+                        <i class="fas fa-rocket"></i> Go to Dashboard
+                    </a>
+                    <a href="#" class="btn btn-ghost-white btn-lg">
+                        <i class="fas fa-phone"></i> Talk to Sales
+                    </a>
+                </div>
+                <div class="cta-trust">
+                    <span><i class="fas fa-shield-check"></i> No credit card required</span>
+                    <span><i class="fas fa-clock"></i> Setup in 5 minutes</span>
+                    <span><i class="fas fa-headset"></i> Free onboarding support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        <img src="favicon.png" alt="VyapaarAI" class="logo-icon">
+                        <span class="logo-text">Vyapaar<span class="logo-highlight">AI</span></span>
+                    </a>
+                    <p>India's smartest AI business assistant for MSMEs. Making data-driven decisions accessible to
+                        every small business owner.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="#roadmap">Roadmap</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 VyapaarAI. All rights reserved. Made with <i class="fas fa-heart text-red"></i> in India.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== AUTHENTICATION AND SHOP SELECTION MODALS ========== -->
+    <div class="modal-overlay" id="authModalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" id="authCloseBtn">&times;</button>
+            <div class="modal-header">
+                <h2>Create Your Account</h2>
+                <p>Join VyapaarAI to smarten your business</p>
+            </div>
+            <form id="authForm" class="modal-form">
+                <div class="form-group">
+                    <label for="userName">Full Name</label>
+                    <input type="text" id="userName" placeholder="e.g. Rahul Sharma" required>
+                </div>
+                <div class="form-group">
+                    <label for="userPhone">Phone Number</label>
+                    <input type="tel" id="userPhone" placeholder="e.g. 9876543210" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group">
+                    <label for="userEmail">Email Address</label>
+                    <input type="email" id="userEmail" placeholder="e.g. rahul@example.com" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block"
+                    style="width: 100%; justify-content: center;">Continue</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="shopModalOverlay">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h2>Select Your Business Type</h2>
+                <p>We'll customize the dashboard based on your shop</p>
+            </div>
+            <div class="shop-grid">
+                <div class="shop-card" data-shop="Retail Shop">
+                    <div class="shop-icon"><i class="fas fa-store"></i></div>
+                    <span>Retail Shop</span>
+                </div>
+                <div class="shop-card" data-shop="Clothing Shop">
+                    <div class="shop-icon"><i class="fas fa-shirt"></i></div>
+                    <span>Clothing Shop</span>
+                </div>
+                <div class="shop-card" data-shop="Electronics Shop">
+                    <div class="shop-icon"><i class="fas fa-plug"></i></div>
+                    <span>Electronics Shop</span>
+                </div>
+                <div class="shop-card" data-shop="Grocery Shop">
+                    <div class="shop-icon"><i class="fas fa-basket-shopping"></i></div>
+                    <span>Grocery Shop</span>
+                </div>
+                <div class="shop-card" data-shop="Pharmacy">
+                    <div class="shop-icon"><i class="fas fa-prescription-bottle-medical"></i></div>
+                    <span>Pharmacy</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="shopNameModalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" id="shopNameCloseBtn">&times;</button>
+            <div class="modal-header">
+                <h2>Name Your Shop</h2>
+                <p>What should we call your business?</p>
+            </div>
+            <form id="shopNameForm" class="modal-form">
+                <div class="form-group">
+                    <label for="shopNameInput">Shop Name</label>
+                    <input type="text" id="shopNameInput" placeholder="e.g. Sharma Kirana Store" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block"
+                    style="width: 100%; justify-content: center;">Complete Setup</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

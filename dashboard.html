@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard – VyapaarAI</title>
+    <meta name="description"
+        content="VyapaarAI Dashboard – View today's sales, monthly profit, stock alerts and AI predictions at a glance.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <!-- Sidebar Toggle (Mobile) -->
+    <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+
+    <!-- ========== SIDEBAR ========== -->
+    <aside class="sidebar" id="sidebar">
+        <a href="dashboard.html" class="sidebar-logo">
+            <img src="favicon.png" alt="VyapaarAI">
+            <span>Vyapaar<span class="logo-ai">AI</span></span>
+        </a>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="active" id="nav-dashboard">
+                <i class="fas fa-th-large"></i> Dashboard
+            </a>
+            <a href="sales-prediction.html" id="nav-sales">
+                <i class="fas fa-chart-line"></i> Sales Prediction
+            </a>
+            <a href="inventory.html" id="nav-inventory">
+                <i class="fas fa-boxes-stacked"></i> Inventory
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="index.html">
+                <i class="fas fa-arrow-left"></i> Back to Website
+            </a>
+        </div>
+    </aside>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-content">
+
+        <!-- NEW: Top Header -->
+        <header class="top-header"
+            style="display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: white; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100;">
+            <div class="header-left" style="display: flex; align-items: center; gap: 20px;">
+                <a href="index.html" class="home-btn"
+                    style="text-decoration: none; color: var(--text-dark); display: flex; align-items: center; gap: 8px; font-weight: 600; padding: 8px 16px; border-radius: 10px; background: var(--off-white); border: 1px solid var(--border-color); transition: all 0.3s;">
+                    <i class="fas fa-house"></i> Home
+                </a>
+            </div>
+            <div class="header-right" style="position: relative;">
+                <div class="profile-dropdown-trigger" id="profileTrigger"
+                    style="display: flex; align-items: center; gap: 10px; cursor: pointer; background: var(--off-white); padding: 5px 15px 5px 5px; border-radius: 50px; border: 1px solid var(--border-color); transition: all 0.3s ease;">
+                    <div class="user-avatar"
+                        style="background: var(--primary); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-family: 'Outfit';"
+                        id="navUserIcon">U</div>
+                    <span id="navUserName" style="font-weight: 500; font-family: 'Inter';">User</span>
+                    <i class="fas fa-chevron-down" style="font-size: 0.8rem; color: #6b7280;"></i>
+                </div>
+
+                <!-- NEW: Profile Dropdown Menu -->
+                <div class="profile-dropdown-menu" id="profileDropdown"
+                    style="display: none; position: absolute; top: calc(100% + 10px); right: 0; width: 220px; background: white; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid var(--border-color); padding: 10px; z-index: 1000; overflow: hidden; animation: fadeInDropdown 0.3s ease;">
+                    <div class="dropdown-header"
+                        style="padding: 10px; border-bottom: 1px solid var(--border-color); margin-bottom: 5px;">
+                        <div style="font-weight: 700; color: var(--text-dark); font-family: 'Outfit';"
+                            id="dropdownFullShopName">My Shop</div>
+                        <div style="font-size: 0.8rem; color: #6b7280;" id="dropdownUserEmail">user@example.com</div>
+                    </div>
+                    <a href="dashboard.html" class="dropdown-item"
+                        style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: var(--text-dark); transition: background 0.2s;">
+                        <i class="fas fa-th-large" style="width: 20px; color: var(--primary);"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="shop.html" class="dropdown-item"
+                        style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: var(--text-dark); transition: background 0.2s;">
+                        <i class="fas fa-store" style="width: 20px; color: #a855f7;"></i>
+                        <span>Shop Simulator</span>
+                    </a>
+                    <div style="height: 1px; background: var(--border-color); margin: 5px 0;"></div>
+                    <button class="dropdown-item logout-btn" id="logoutBtn"
+                        style="width: 100%; border: none; background: none; display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; text-decoration: none; color: #ef4444; font-weight: 600; cursor: pointer; transition: background 0.2s;">
+                        <i class="fas fa-sign-out-alt" style="width: 20px;"></i>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-header" style="padding: 30px;">
+            <h1>📊 <span id="dashboardStoreName">Dashboard</span></h1>
+            <p>Welcome back, <span id="dashboardUserName">User</span>! Here's your business overview for today.</p>
+        </div>
+
+        <!-- Metric Cards -->
+        <div class="metrics-grid">
+            <div class="metric-card card-sales">
+                <div class="metric-icon"><i class="fas fa-chart-bar"></i></div>
+                <div class="metric-label">Today's Sales</div>
+                <div class="metric-value" id="todaySalesValue">₹12,450</div>
+                <span class="metric-change positive"><i class="fas fa-arrow-up"></i> 8.2% vs yesterday</span>
+            </div>
+            <div class="metric-card card-count">
+                <div class="metric-icon"><i class="fas fa-receipt"></i></div>
+                <div class="metric-label">Today's Sales Count</div>
+                <div class="metric-value" id="todaySalesCountValue">18</div>
+                <span class="metric-change positive"><i class="fas fa-arrow-up"></i> Ongoing</span>
+            </div>
+            <div class="metric-card card-profit">
+                <div class="metric-icon"><i class="fas fa-indian-rupee-sign"></i></div>
+                <div class="metric-label">Monthly Profit</div>
+                <div class="metric-value" id="monthlyProfitValue">₹35,000</div>
+                <span class="metric-change positive"><i class="fas fa-arrow-up"></i> 12% vs last month</span>
+            </div>
+            <div class="metric-card card-stock">
+                <div class="metric-icon"><i class="fas fa-box-open"></i></div>
+                <div class="metric-label">Low Stock Alert</div>
+                <div class="metric-value">3 Items</div>
+                <span class="metric-change negative"><i class="fas fa-exclamation-triangle"></i> Restock needed</span>
+            </div>
+            <div class="metric-card card-prediction">
+                <div class="metric-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                <div class="metric-label">Next Week Sales Prediction</div>
+                <div class="metric-value">₹98,000</div>
+                <span class="metric-change positive"><i class="fas fa-sparkles"></i> AI Predicted</span>
+            </div>
+        </div>
+
+        <!-- Quick Overview -->
+        <div class="overview-grid">
+            <div class="overview-card">
+                <h3><i class="fas fa-fire"></i> Top Selling Products</h3>
+                <ul class="recent-list" id="topProductsList">
+                    <li><span class="item-name">🍚 Rice (Basmati)</span><span class="item-value">₹4,200</span></li>
+                    <li><span class="item-name">🛢️ Cooking Oil</span><span class="item-value">₹3,150</span></li>
+                    <li><span class="item-name">🧼 Soap (Dettol)</span><span class="item-value">₹2,800</span></li>
+                    <li><span class="item-name">🌾 Wheat Flour</span><span class="item-value">₹2,300</span></li>
+                </ul>
+            </div>
+            <div class="overview-card">
+                <h3><i class="fas fa-clock-rotate-left"></i> Recent Activity</h3>
+                <ul class="recent-list" id="recentActivityList">
+                    <li><span class="item-name">Sale — Rice 5kg</span><span class="item-value">₹450</span></li>
+                    <li><span class="item-name">Restock — Oil 20L</span><span class="item-value">₹2,400</span></li>
+                    <li><span class="item-name">Sale — Soap x10</span><span class="item-value">₹350</span></li>
+                    <li><span class="item-name">Payment — Gupta Ji</span><span class="item-value">₹1,200</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- AI Insight -->
+        <div class="ai-card ai-suggestion">
+            <div class="ai-card-icon"><i class="fas fa-robot"></i></div>
+            <div class="ai-card-content">
+                <h3>🔮 AI Business Insight</h3>
+                <p>Based on current trends, <strong>rice demand may increase by 15%</strong> next week due to upcoming
+                    festival season. Consider restocking early to maximize profits.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ========== FLOATING CHAT ========== -->
+    <button class="chat-fab" id="chatFab" aria-label="Open AI Chat">
+        <i class="fas fa-robot"></i>
+    </button>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-header-avatar"><i class="fas fa-robot"></i></div>
+            <div class="chat-header-info">
+                <h4>VyapaarAI Assistant</h4>
+                <span>🟢 Online — Ask me anything</span>
+            </div>
+            <button class="chat-header-close" id="chatClose"><i class="fas fa-xmark"></i></button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-msg bot">
+                <div class="bot-label"><i class="fas fa-robot"></i> VyapaarAI</div>
+                Namaste! 🙏 I'm your AI business assistant. Ask me about sales, profit, inventory or anything about your
+                business!
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Type your question…" autocomplete="off">
+            <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+
+</html>
