@@ -1,0 +1,273 @@
+/* ==========================================
+   VyapaarAI – Shop Simulator Styles
+   ========================================== */
+
+:root {
+    --shop-primary: #1a1a5e;
+    --shop-accent: #6c63ff;
+    --shop-bg: #f8fafc;
+    --shop-card-bg: #ffffff;
+    --shop-text: #1f2937;
+    --shop-text-muted: #6b7280;
+    --shop-border: #e2e8f0;
+    --shop-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.shop-page {
+    background-color: var(--shop-bg);
+    color: var(--shop-text);
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- Search Bar --- */
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 20px 12px 45px;
+    border-radius: 50px;
+    border: 1px solid var(--shop-border);
+    background: white;
+    box-shadow: var(--shop-shadow);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--shop-accent);
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--shop-text-muted);
+}
+
+/* --- Categories --- */
+.categories-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.category-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 25px;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--shop-border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 110px;
+}
+
+.category-pill i {
+    font-size: 1.5rem;
+    color: var(--shop-accent);
+}
+
+.category-pill span {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.category-pill:hover,
+.category-pill.active {
+    border-color: var(--shop-accent);
+    background: rgba(108, 99, 255, 0.05);
+    transform: translateY(-3px);
+    box-shadow: var(--shop-shadow);
+}
+
+.category-pill.active {
+    background: var(--shop-accent);
+    color: white;
+}
+
+.category-pill.active i {
+    color: white;
+}
+
+/* --- Featured & Offers Sections --- */
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.featured-grid,
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+/* --- Item Cards --- */
+.simulator-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--shop-border);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.simulator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-container {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.simulator-card:hover .card-img {
+    transform: scale(1.1);
+}
+
+.card-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: #fffbeb;
+    color: #d97706;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.card-rating i {
+    font-size: 0.75rem;
+}
+
+.card-body {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #fef3c7;
+    color: #92400e;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.card-price-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.current-price {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--shop-primary);
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: var(--shop-text-muted);
+    font-size: 0.9rem;
+}
+
+.btn-sell {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--shop-accent);
+    color: white;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-sell:hover {
+    background: #5a52e5;
+    transform: scale(1.02);
+}
+
+.btn-sell:active {
+    transform: scale(0.98);
+}
+
+/* --- Offers specific --- */
+.offer-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 6px 12px;
+    background: #ef4444;
+    color: white;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    z-index: 2;
+}
+
+.simulator-card {
+    position: relative;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .category-pill {
+        padding: 12px 18px;
+        min-width: 90px;
+    }
+}

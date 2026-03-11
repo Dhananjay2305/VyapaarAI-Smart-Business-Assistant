@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Simulator – VyapaarAI</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shop.css">
+</head>
+
+<body class="shop-page">
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" style="background: var(--primary); padding: 12px 0; position: sticky;">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="favicon.png" alt="VyapaarAI" class="logo-icon">
+                <span class="logo-text text-white">Vyapaar<span class="logo-highlight">AI</span></span>
+                <span
+                    style="color: rgba(255,255,255,0.6); font-size: 0.8rem; margin-left: 10px; font-weight: 500; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 10px;">Simulator</span>
+            </a>
+
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="shopSearch" class="search-input" placeholder="Search for items, categories...">
+            </div>
+
+            <div class="nav-actions">
+                <a href="dashboard.html" class="btn btn-outline" style="border-color: white; color: white;">
+                    Dashboard <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== SHOP HEADER ========== -->
+    <header style="padding: 40px 0; background: white; border-bottom: 1px solid var(--shop-border);">
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+            <div>
+                <h1 style="font-size: 2.2rem; color: var(--shop-primary); margin-bottom: 5px;" id="shopTitle">Loading
+                    Shop...</h1>
+                <p style="color: var(--shop-text-muted); font-size: 1rem;">Experience your storefront as a customer
+                    would.</p>
+            </div>
+            <div style="background: var(--shop-bg); padding: 10px 20px; border-radius: 12px; text-align: right;">
+                <div style="font-size: 0.8rem; color: var(--shop-text-muted); font-weight: 600;">SIMULATION MODE</div>
+                <div style="color: var(--green); font-weight: 700; font-size: 0.9rem;"><i class="fas fa-circle"
+                        style="font-size: 0.6rem;"></i> Live Sync Enabled</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 30px 0;">
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast-notification"></div>
+
+        <!-- Categories -->
+        <div class="categories-nav">
+            <div class="category-pill active" data-category="All">
+                <i class="fas fa-grid-2"></i>
+                <span>All Items</span>
+            </div>
+            <div class="category-pill" data-category="Grocery">
+                <i class="fas fa-basket-shopping"></i>
+                <span>Grocery</span>
+            </div>
+            <div class="category-pill" data-category="Clothing">
+                <i class="fas fa-shirt"></i>
+                <span>Clothes</span>
+            </div>
+            <div class="category-pill" data-category="Electronics">
+                <i class="fas fa-mobile-screen"></i>
+                <span>Electronics</span>
+            </div>
+            <div class="category-pill" data-category="Pharmacy">
+                <i class="fas fa-prescription-bottle-medical"></i>
+                <span>Pharmacy</span>
+            </div>
+        </div>
+
+        <!-- OFFERS SECTION -->
+        <section id="offersSection">
+            <h2 class="section-title"><i class="fas fa-tag" style="color: #ef4444;"></i> Special Offers</h2>
+            <div class="offers-grid" id="offersGrid">
+                <!-- Offers fallback or dynamic -->
+            </div>
+        </section>
+
+        <!-- FEATURED SECTION -->
+        <section id="featuredSection">
+            <h2 class="section-title"><i class="fas fa-star" style="color: #fb8c00;"></i> Featured Products</h2>
+            <div class="featured-grid" id="featuredGrid">
+                <!-- Featured items -->
+            </div>
+        </section>
+
+        <!-- ALL PRODUCTS -->
+        <section>
+            <h2 class="section-title"><i class="fas fa-list-ul" style="color: var(--shop-accent);"></i> Browse All Items
+            </h2>
+            <div class="shop-items-grid" id="itemsGrid">
+                <!-- Items dynamically loaded here -->
+            </div>
+        </section>
+
+    </main>
+
+    <footer
+        style="padding: 40px 0; border-top: 1px solid var(--shop-border); text-align: center; color: var(--shop-text-muted);">
+        <p>© 2026 VyapaarAI Simulator. All simulation data is recorded to your dashboard.</p>
+    </footer>
+
+    <script src="shop.js"></script>
+</body>
+
+</html>
