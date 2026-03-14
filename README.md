@@ -1,6 +1,5 @@
 # VyapaarAI-Smart-Business-Assistant
 
-
 ## 🚀 Overview
 
 VyapaarAI is an AI-powered web application designed to help small and medium businesses manage their operations smarter.
@@ -10,7 +9,7 @@ Small businesses often struggle with manual record keeping and lack data-driven 
 
 The goal of this project is to make advanced AI tools accessible to small business owners in a simple and affordable way.
 
----
+
 
 ## 🎯 Problem Statement
 
